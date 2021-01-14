@@ -10,22 +10,22 @@ const NewsLetter = () => {
           <form
             className="contact-form"
             name="contact"
-            method="post"
+            method="POST"
             netlify-honeypot="bot-field"
             data-netlify="true"
             action="/success"
           >
-            <input type="hidden" className="bot-field" />
-            <input type="hidden" className="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
             <input
               type="text"
-              value="name"
+              name="name"
               placeholder="Your Name"
               className="form-control"
             />
             <input
               type="email"
-              value="email"
+              name="email"
               placeholder="Your Email"
               className="form-control"
             />

@@ -1,0 +1,76 @@
+---
+title: Gatsby Tutorial
+slug: gatsby-tutorial
+image: ./images/gatsby-1.png
+date: 2021-01-13
+author: john smith
+category: gatsby
+readTime: 34
+---
+
+import { Link } from 'gatsby'
+import { FiInfo } from 'react-icons/fi'
+import { Counter, LikeButton } from '../../components/Complete'
+
+## My first mdx file
+
+**Hey, take a look at the earthlings. Goodbye! God help us, we're in the hands of engineers. Eventually, you do plan to have dinosaurs on your dinosaur tour, right?** Do you have any idea how long it takes those cups to decompose. Hey, you know how I'm, like, _always trying to save the planet? Here's my chance._
+
+<div className="code">
+
+```jsx
+import React from 'react'
+
+const me = () => {
+  return <h1>This is an h1</h1>
+}
+```
+
+</div>
+
+<div className="nice-text">
+
+<h3>Heading 3</h3>
+<FiInfo className="nice-text-icon" />
+Hey, take a look at the earthlings. Goodbye! God help us, we're in the hands of
+engineers. Eventually, you do plan to have dinosaurs on your dinosaur tour,
+right? Do you have any idea how long it takes those cups to decompose. Hey, you
+know how I'm, like, always trying to save the planet? Here's my chance.
+
+</div>
+
+<h2>React Components</h2>
+
+<Counter />
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+import { AiOutlineLike } from 'react-icons/ai'
+const LikeButton = () => {
+  const [value, setValue] = React.useState(0)
+  return (
+    <Wrapper>
+      <div>
+        <button onClick={() => setValue(value + 1)}>
+          <AiOutlineLike />
+        </button>
+        <p>
+          Liked the post?
+          <br />
+          Click thumbs up few times
+        </p>
+      </div>
+      <span>+{value}</span>
+    </Wrapper>
+  )
+}
+```
+
+<LikeButton />
+
+{' '}
+
+<Link to="/" className="btn center-btn">
+  Back To Home
+</Link>
