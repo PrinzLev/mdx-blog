@@ -1,7 +1,7 @@
 import Layout from '../components/Layout.js'
 import { Link } from 'gatsby'
 import { FiInfo } from 'react-icons/fi'
-import { Counter, LikeButton } from '../components/Complete'
+import { Counter, LikeButton, RegVideo, Video } from '../components/Complete'
 
 <Layout>
 <section className="mdx-page">
@@ -63,6 +63,9 @@ const LikeButton = () => {
 
 <LikeButton />
 
+<h2>Video Component</h2>
+<RegVideo/>
+<Video src="https://www.youtube.com/embed/j5a0jTc9S10" title="cute dog"/>
   <Link to="/" className="btn center-btn">
     Back To Home
   </Link>

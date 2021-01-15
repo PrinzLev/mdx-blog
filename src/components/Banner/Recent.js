@@ -5,9 +5,58 @@ import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 import Title from './Title'
 // ...GatsbyImageSharpFluid
-
+const query = graphql`
+  {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 5) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM Do, YYYY")
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          slug
+          title
+        }
+        id
+      }
+    }
+  }
+`
 const Recent = () => {
-  return <Wrapper>Banner Recent</Wrapper>
+  const {
+    allMdx: { nodes },
+  } = useStaticQuery(query)
+  return (
+    <Wrapper>
+      <Title title="recent" />
+      {nodes.map(post => {
+        const {
+          frontmatter: {
+            date,
+            image: {
+              childImageSharp: { fluid },
+            },
+            slug,
+            title,
+          },
+          id,
+        } = post
+        return (
+          <Link to={`/posts/${slug}`} key={id} className="post">
+            <Image fluid={fluid} className="image" />
+            <div>
+              <h5>{title}</h5>
+              <p>{date}</p>
+            </div>
+          </Link>
+        )
+      })}
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
